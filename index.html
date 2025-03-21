@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Instagram Reel Downloader</title>
@@ -14,7 +15,13 @@
             var url = document.getElementById("url").value;
             var shortcode = extractShortcode(url);
             if (shortcode !== "Invalid URL") {
-                document.getElementById("result").innerHTML = "Reel downloaded as " + shortcode + ".mp4";
+                // Create a blob and download a mock file
+                var blob = new Blob(["Mock video content for " + shortcode], { type: "video/mp4" });
+                var link = document.createElement("a");
+                link.href = window.URL.createObjectURL(blob);
+                link.download = shortcode + ".mp4";
+                link.click();
+                document.getElementById("result").innerHTML = "Reel saved as " + shortcode + ".mp4";
             } else {
                 document.getElementById("result").innerHTML = "Please enter a valid Instagram reel URL.";
             }
@@ -31,3 +38,4 @@
     </script>
 </body>
 </html>
+
