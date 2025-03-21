@@ -10,32 +10,11 @@
     <button onclick="simulateDownload()">Download</button>
     <p id="result"></p>
 
-    <script>
-        function simulateDownload() {
-            var url = document.getElementById("url").value;
-            var shortcode = extractShortcode(url);
-            if (shortcode !== "Invalid URL") {
-                // Create a blob and download a mock file
-                var blob = new Blob(["Mock video content for " + shortcode], { type: "video/mp4" });
-                var link = document.createElement("a");
-                link.href = window.URL.createObjectURL(blob);
-                link.download = shortcode + ".mp4";
-                link.click();
-                document.getElementById("result").innerHTML = "Reel saved as " + shortcode + ".mp4";
-            } else {
-                document.getElementById("result").innerHTML = "Please enter a valid Instagram reel URL.";
-            }
-        }
-
-        function extractShortcode(url) {
-            var match = url.match(/instagram\.com\/reel\/([A-Za-z0-9_-]+)/);
-            if (match) {
-                return match[1];
-            } else {
-                return "Invalid URL";
-            }
-        }
-    </script>
+    
+         
+    <script type="py">
+print("Hello, World!")
+</script>
 </body>
 </html>
 
