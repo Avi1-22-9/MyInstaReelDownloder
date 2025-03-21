@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Instagram Reel Downloader</title>
+</head>
+<body>
+    <h1>Instagram Reel Downloader</h1>
+    <p>Enter the Instagram reel URL:</p>
+    <input type="text" id="url" name="url" placeholder="e.g., https://www.instagram.com/reel/Cxyzabc123/">
+    <button onclick="simulateDownload()">Download</button>
+    <p id="result"></p>
+
+    <script>
+        function simulateDownload() {
+            var url = document.getElementById("url").value;
+            var shortcode = extractShortcode(url);
+            if (shortcode !== "Invalid URL") {
+                document.getElementById("result").innerHTML = "Reel downloaded as " + shortcode + ".mp4";
+            } else {
+                document.getElementById("result").innerHTML = "Please enter a valid Instagram reel URL.";
+            }
+        }
+
+        function extractShortcode(url) {
+            var match = url.match(/instagram\.com\/reel\/([A-Za-z0-9_-]+)/);
+            if (match) {
+                return match[1];
+            } else {
+                return "Invalid URL";
+            }
+        }
+    </script>
+</body>
+</html>
